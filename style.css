@@ -52,7 +52,7 @@ body {
 @media (orientation: portrait) {
 
   .mobile #header {
-    height: 148px;
+    height: 160px;
   }
   .mobile #header .button {
     font-size: 25pt;
