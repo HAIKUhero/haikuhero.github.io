@@ -52,12 +52,12 @@ body {
 @media (orientation: portrait) {
 
   .mobile #header {
-    height: 175px;
+    height: 196px;
   }
   .mobile #header .button {
     font-size: 25pt;
     width: 200px;
-    height: 140px;
+    height: 170px;
   }
   .mobile #header .nav {
     min-width: 0px;
