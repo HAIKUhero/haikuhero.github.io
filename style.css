@@ -81,6 +81,9 @@ body {
     font-size: 200%;
   }
 
+.mobile #content #haiku {
+  color: #222222;
+}
   /* Disable the download button and footer, since we just don't have room */
   .mobile #download-container {
     visibility: hidden;
