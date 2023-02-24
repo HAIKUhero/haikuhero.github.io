@@ -1,0 +1,265 @@
+/************
+ ** Global **
+ ************/
+
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: 'Haiku-Font';
+  src: url('./haiku2.ttf');
+}
+
+/***********
+ ** Video **
+ ***********/
+
+#background-video {
+  position: fixed;
+  left: -110%;
+  top: 0;
+  z-index: -1;
+  min-width: 220%;
+  margin: 0 0;
+  margin-left: 50%;
+}
+
+/**********************
+ ** Mobile Landscape **
+ **********************/
+
+@media (orientation: landscape) {
+  .mobile #footer{ display: none; }
+}
+
+/*********************
+ ** Mobile Portrait **
+ *********************/
+
+/* This mode is difficult to test and full of hacks..
+   For example, .mobile is set in utils.js and is a giant regex if statement.
+*/
+
+/* Make the nav readable */
+@media (orientation: portrait) {
+
+  .mobile #header {
+    height: 148px;
+  }
+  .mobile #header .button {
+    font-size: 25pt;
+    width: 200px;
+    height: 140px;
+  }
+  .mobile #header .nav {
+    min-width: 0px;
+  }
+
+  /* Make the logo bigger using zoom and do some crap margin fiddling */
+  .mobile #header .logo img {
+    margin-top: 15px;
+    margin-left: 15px;
+    zoom: 1.4; 
+    -moz-transform: scale(1.4);
+  }
+
+  /* Make the make content just take the full space to make things easy style-wise */
+  .mobile #content {
+    padding-top: 160px;
+    padding-bottom: 150px;
+    padding-left: 35px;
+    padding-right: 35px;
+    min-width: 0px;
+    font-size: 200%;
+  }
+
+  /* Disable the download button and footer, since we just don't have room */
+  .mobile #download-container {
+    visibility: hidden;
+  }
+
+  /* Modify the footer */
+  .mobile #footer {
+    zoom: 2.0; 
+    -moz-transform: scale(2.0);
+  }
+}
+
+/************
+ ** Header **
+ ************/
+
+#header {
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  background-color: #EEEEEE;
+
+  /* Make sure we are on top of the content as we scroll */
+  z-index: 1;
+  position: fixed;
+}
+
+#header .logo img {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+#header .nav {
+  min-width: 750px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+#header .nav .buttons {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Buttons for main navigation */
+#header .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 128px;
+  height: 110px;
+  padding-top: 10px;
+  margin-left: 5px;
+
+  color: #222222;
+}
+#header .button.selected {
+  border-radius: 0px 0px 22px 22px;
+  background: #E6E6E6;
+  color: #000000;
+}
+
+.button.juicy {
+  border-radius: 10px 10px 10px 10px;
+  color: #FFFFFF !important;
+  
+  /* Give the button that "juicy" look */
+  background-image: linear-gradient(#289A54, #38AA64, #289A54);
+  -moz-box-shadow: 0 3px 5px #CCC;
+  -webkit-box-shadow: 0 3px 5px #CCC;
+  -o-box-shadow: 0 3px 5px #CCC;
+  -ms-box-shadow: 0 3px 5px #CCC;
+  box-shadow: 0 3px 5px #CCC;
+  transition-duration: 0.4s;
+}
+
+.button.juicy:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#download-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+#download {
+  display: flex;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#download .button {
+  display: flex;
+  height: 60px;
+  width: 140px;
+  padding-top: 0;
+  margin-left: 0;
+}
+
+#get-started-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#get-started {
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#get-started .button {
+  display: flex;
+  height: 60px;
+  width: 200px;
+  border-radius: 10px 10px 10px 10px;
+  text-align:center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*************
+ ** Content **
+ *************/
+
+#content {
+  max-width: 1600px;
+  min-width: 1000px;
+  padding-top: 90px;
+  padding-bottom: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-size: 12pt;
+  color: #FFFFFF;
+}
+#content #haiku {
+  font-size: 36pt;
+  font-family: 'Haiku-Font';
+}
+#content #subscribe-box {
+  width: 400px;
+  height: 150px;
+  background-color: #000000;
+}
+
+.linenums li {
+  list-style-type: decimal !important;
+}
+
+.profile {
+  border-radius: 50%;
+}
+
+/************
+ ** Footer **
+ ************/
+
+#footer {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  flex-direction: row-reverse;
+  color: #E6E6E6;
+  background: #EEEEEE;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  padding-right: 20px;
+}
+#footer .button {
+  justify-content: center;
+  margin-right: 30px;
+  font-size: 13pt;
+  color: #000000;
+}
